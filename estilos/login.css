@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    overflow-x: hidden; /* Evita scrolls horizontales no deseados */
+}
+
+/* Contenedor principal dividido en dos mitades (Split Screen) */
+.page-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Lado izquierdo con imagen de fondo institucional */
+.left-side {
+    flex: 1.2;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(2, 132, 199, 0.65)), 
+                url('../img/fondo.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px;
+}
+
+.brand-overlay {
+    color: #ffffff;
+    max-width: 480px;
+}
+
+.brand-badge {
+    display: inline-block;
+    background-color: #0284c7;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.brand-overlay h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.brand-overlay p {
+    font-size: 15px;
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+
+/* Lado derecho con la tarjeta de inicio de sesión */
+.right-side {
+    flex: 1;
+    min-height: 100vh;
+    background: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-card {
+    background-color: #ffffff;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.login-header {
+    margin-bottom: 28px;
+}
+
+.login-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #0f172a;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.login-header p {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Grupos de input */
+.input-group {
+    width: 100%;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #334155;
+    font-size: 13px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #1e293b;
+    background-color: #ffffff;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Botón de Acceso */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-login:hover {
+    background: #0369a1;
+}
+
+.btn-login:active {
+    transform: translateY(1px);
+}
+
+/* Enlace inferior */
+.footer-link {
+    text-align: center;
+    width: 100%;
+}
+
+.footer-link a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-link a:hover {
+    color: #0284c7;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   REGLAS RESPONSIVAS (MEDIA QUERIES)
+   ========================================== */
+
+/* Pantallas medianas y celulares (<= 768px) */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Ocultamos la columna izquierda independiente */
+    .left-side {
+        display: none;
+    }
+
+    /* Asignamos la imagen institucional como fondo del contenedor derecho en móvil */
+    .right-side {
+        width: 100%;
+        min-height: 100vh;
+        padding: 24px 16px;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(2, 132, 199, 0.6)), 
+                    url('../img/fondo.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* La tarjeta del formulario recibe una ligera opacidad limpia para contrastar contra el fondo */
+    .login-card {
+        max-width: 400px;
+        padding: 32px 24px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(8px);
+    }
+}

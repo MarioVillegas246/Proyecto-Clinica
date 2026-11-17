@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 620px;
+    background-color: #ffffff;
+    padding: 36px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.encabezado-pagina {
+    margin-bottom: 24px;
+}
+
+.regresar {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #0284c7;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.regresar:hover {
+    color: #0369a1;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #0f172a;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.subtitulo {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Alerta de Error Profesional */
+.alerta-error {
+    background-color: #fef2f2; 
+    color: #991b1b; 
+    border: 1px solid #fee2e2;
+    padding: 12px 16px; 
+    border-radius: 10px; 
+    margin-bottom: 20px; 
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+/* Estructura del Formulario */
+.form-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-label {
+    font-weight: 600; 
+    font-size: 13px;
+    color: #334155;
+}
+
+.form-input, .form-textarea {
+    width: 100%; 
+    padding: 11px 14px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 8px; 
+    background-color: #ffffff; 
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus, .form-textarea:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Botón de Guardar */
+.form-acciones {
+    margin-top: 8px;
+}
+
+.form-btn-submit {
+    width: 100%; 
+    background-color: #0284c7; 
+    color: white; 
+    border: none; 
+    padding: 13px; 
+    border-radius: 8px; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; 
+    font-size: 15px; 
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+}
+
+.form-btn-submit:hover {
+    background-color: #0369a1;
+}
+
+.form-btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================
+   REGLAS RESPONSIVAS (MEDIA QUERIES)
+   ========================================== */
+
+/* Tablets y Celulares (<= 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 16px 12px; /* Reduce márgenes exteriores de la pantalla */
+        align-items: flex-start; /* Permite scroll vertical fluido si el contenido es largo */
+    }
+
+    .contenedor {
+        padding: 24px 18px; /* Reduce espacios internos para aprovechar el ancho */
+        border-radius: 12px;
+    }
+
+    /* Los campos que estaban lado a lado (.form-row) ahora bajan en columna */
+    .form-row {
+        flex-direction: column;
+        gap: 18px;
+    }
+}
+
+/* Celulares Pequeños (<= 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 21px;
+    }
+
+    .form-input, 
+    .form-textarea {
+        font-size: 16px; /* Evita que los dispositivos iOS hagan zoom automático al enfocar inputs */
+    }
+}

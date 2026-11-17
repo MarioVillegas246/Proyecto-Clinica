@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+    padding: 32px 20px;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Encabezado y Navegación */
+.encabezado-pagina {
+    margin-bottom: 24px;
+}
+
+.regresar {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #0284c7;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.regresar:hover {
+    color: #0369a1;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #0f172a;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Barra de Búsqueda y Botones */
+.barra-busqueda {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.grupo-busqueda-input {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    max-width: 480px;
+}
+
+.barra-busqueda input[type="text"] {
+    padding: 10px 16px;
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.barra-busqueda input[type="text"]:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.btn-buscar {
+    padding: 10px 20px;
+    background-color: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-buscar:hover {
+    background-color: #0369a1;
+}
+
+.grupo-filtros {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-stock-bajo {
+    background-color: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fde68a;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-stock-bajo:hover {
+    background-color: #fde68a;
+    color: #b45309;
+}
+
+.btn-limpiar {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.btn-limpiar:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+/* Tabla de Inventario */
+.tabla-wrapper {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow-x: auto; /* Desplazamiento horizontal para tablas en móviles */
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    min-width: 600px; /* Ancho mínimo para mantener la legibilidad de columnas */
+}
+
+th {
+    background-color: #f8fafc;
+    color: #475569;
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    text-align: left;
+    color: #334155;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Badges y Formatos en la Tabla */
+.codigo-badge {
+    font-family: monospace;
+    font-size: 13px;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.nombre-producto {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.precio-col {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.badge-stock {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.badge-stock.normal {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.badge-stock.bajo {
+    background-color: #fee2e2;
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* Botones de Acciones */
+.acciones-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-accion-editar {
+    background-color: #f1f5f9;
+    color: #0284c7;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.btn-accion-editar:hover {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-color: #bae6fd;
+}
+
+.btn-accion-eliminar {
+    background-color: #fef2f2;
+    color: #dc2626;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px solid #fee2e2;
+    transition: all 0.2s ease;
+}
+
+.btn-accion-eliminar:hover {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.sin-registros {
+    color: #64748b;
+    text-align: center;
+    padding: 32px;
+    font-style: italic;
+}
+
+/* ==========================================
+   REGLAS RESPONSIVAS (MEDIA QUERIES)
+   ========================================== */
+
+/* Tablets y Dispositivos Medianos (<= 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 16px 12px;
+    }
+
+    .contenedor {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .barra-busqueda {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .grupo-busqueda-input {
+        max-width: 100%;
+    }
+
+    .grupo-filtros {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .btn-stock-bajo,
+    .btn-limpiar {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* Celulares Pequeños (<= 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .grupo-busqueda-input {
+        flex-direction: column;
+    }
+
+    .btn-buscar {
+        width: 100%;
+    }
+
+    .grupo-filtros {
+        flex-direction: column;
+    }
+
+    .btn-stock-bajo,
+    .btn-limpiar {
+        width: 100%;
+    }
+}

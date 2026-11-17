@@ -1,0 +1,491 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f1f5f9;
+    overflow-x: hidden;
+}
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* ==========================================
+   BARRA LATERAL (SIDEBAR)
+   ========================================== */
+.sidebar {
+    width: 270px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1e293b;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo {
+    height: 38px;
+    width: auto;
+    border-radius: 6px;
+    background: #ffffff;
+    padding: 2px;
+}
+
+.brand-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacia el perfil y el nuevo botón */
+    gap: 12px;
+    padding: 12px;
+    background: #1e293b;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.user-profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-placeholder {
+    font-size: 22px;
+    background: #334155;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.user-info h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.role-badge {
+    font-size: 11px;
+    background: #0284c7;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* BOTÓN DE HAMBURGUESA JUNTO A ADMIN (Oculto en escritorio) */
+.btn-user-hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.btn-user-hamburger:hover {
+    background-color: #334155;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-dropdown {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+
+.dropdown-toggle:hover, .dropdown-toggle.active {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.dropdown-toggle .arrow {
+    font-size: 9px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #0b1324;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-menu-content .nav-link {
+    display: block;
+    padding: 10px 14px 10px 38px;
+    font-size: 13px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.dropdown-menu-content .nav-link:hover {
+    color: #38bdf8;
+}
+
+/* ==========================================
+   BARRA SUPERIOR (HEADER)
+   ========================================== */
+.main-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    width: 100%;
+}
+
+.top-navbar {
+    height: 65px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.navbar-title h2 {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.btn-logout {
+    background-color: #ef4444;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626;
+}
+
+/* ==========================================
+   ÁREA DE TRABAJO (DASHBOARD OPERATIVO)
+   ========================================== */
+.dashboard-workspace {
+    flex: 1;
+    padding: 28px 32px;
+    background-color: #f8fafc;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.welcome-banner {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    padding: 24px 32px;
+    border-radius: 14px;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15);
+}
+
+.welcome-banner h1 {
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.welcome-banner .quote {
+    font-size: 13px;
+    color: #e0f2fe;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Tarjetas de estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.clickable-card {
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clickable-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.stat-icon {
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.stat-icon.blue { background: #e0f2fe; }
+.stat-icon.warning { background: #fef3c7; }
+.stat-icon.green { background: #dcfce7; }
+
+.stat-title {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    color: #0f172a;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.text-warning { color: #d97706; }
+
+.stat-subtext {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* Secciones de Alertas y Últimas Acciones */
+.dashboard-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.content-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+}
+
+.card-header {
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.card-header h3 {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #0f172a;
+}
+
+.alert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alert-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #f1f5f9;
+}
+
+.badge {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.badge.danger { background: #fee2e2; color: #991b1b; }
+.badge.warning { background: #fef3c7; color: #92400e; }
+
+.item-name {
+    flex: 1;
+    margin: 0 12px;
+    color: #334155;
+}
+
+.item-qty {
+    color: #64748b;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.activity-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.activity-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    color: #334155;
+}
+
+.activity-list .time {
+    font-size: 11px;
+    color: #94a3b8;
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+
+/* ==========================================
+   REGLAS RESPONSIVAS (MEDIA QUERIES)
+   ========================================== */
+
+/* Tablets y Dispositivos Medianos (<= 992px) */
+@media (max-width: 992px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+    }
+
+    /* Muestra el botón de hamburguesa dentro de la caja de usuario en móviles */
+    .btn-user-hamburger {
+        display: inline-block;
+    }
+
+    .user-profile {
+        margin-bottom: 0;
+    }
+
+    /* La lista de navegación se oculta por defecto en celular */
+    .sidebar-nav {
+        display: none;
+        margin-top: 16px;
+    }
+
+    /* Clase activa que agregará JavaScript al pulsar el botón */
+    .sidebar-nav.active {
+        display: flex;
+    }
+
+    .main-content-wrapper {
+        height: auto;
+        min-height: auto;
+    }
+
+    .dashboard-workspace {
+        padding: 20px 16px;
+    }
+}
+
+/* Celulares Pequeños (<= 768px) */
+@media (max-width: 768px) {
+    .top-navbar {
+        padding: 0 16px;
+        height: 60px;
+    }
+
+    .navbar-title h2 {
+        font-size: 16px;
+    }
+
+    .welcome-banner {
+        padding: 20px;
+    }
+
+    .welcome-banner h1 {
+        font-size: 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sections {
+        grid-template-columns: 1fr;
+    }
+}
