@@ -1,15 +1,23 @@
 <?php
 
-// Datos de conexión a PostgreSQL
-$servidor = "localhost";
-$puerto = "5432";
-$usuario = "postgres";
-$contrasena = "Mario20406";
-$base_datos = "clinica";
+$envPath = __DIR__ . '/../../.env';
+if (file_exists($envPath)) {
+    $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($key, $value) = explode('=', $line, 2);
+        $_ENV[trim($key)] = trim($value);
+    }
+}
+
+$servidor = $_ENV['DB_HOST'] ?? 'localhost';
+$puerto = $_ENV['DB_PORT'] ?? '5432';
+$base_datos = $_ENV['DB_NAME'] ?? '';
+$usuario = $_ENV['DB_USER'] ?? '';
+$contrasena = $_ENV['DB_PASS'] ?? '';
 
 try {
-
-    // Crear conexión con PostgreSQL
+    
     $conexion = new PDO(
         "pgsql:host=$servidor;port=$puerto;dbname=$base_datos",
         $usuario,

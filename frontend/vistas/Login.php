@@ -45,8 +45,7 @@
                     <button type="submit" class="btn-login">Acceder al Sistema</button>
                 </form>
 
-                <div class="footer-link">
-                    <a href="Registro.php">¿No tienes cuenta? Crear Cuenta</a>
+         
                 </div>
             </div>
         </div>
