@@ -1,6 +1,6 @@
 <?php
 // Incluir conexión a PostgreSQL
-require_once "conexionposgres.php";
+require_once "../../backend/config/conexionposgres.php";
 
 $mensaje = "";
 $error = "";
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- Vinculamos el archivo de estilos externo -->
-    <link rel="stylesheet" href="estilos/registro.css">
+    <link rel="stylesheet" href="../assets/estilos/registro.css">
 </head>
 <body>
 

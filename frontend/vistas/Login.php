@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- Archivo de estilos externo -->
-    <link rel="stylesheet" href="estilos/login.css">
+    <!-- Archivo de estilos externo corregido -->
+    <link rel="stylesheet" href="../assets/estilos/login.css">
 </head>
 <body>
 
@@ -30,7 +30,8 @@
                     <h2>Bienvenido</h2>
                 </div>
                 
-                <form action="validar_login.php" method="POST">
+                <!-- Acción del formulario corregida -->
+                <form action="../../backend/controller/validar_login.php" method="POST">
                     <div class="input-group">
                         <label for="correo">Usuario</label>
                         <input type="text" id="correo" name="correo" placeholder="Admi@gmail.com" required>
@@ -45,7 +46,7 @@
                 </form>
 
                 <div class="footer-link">
-                    <a href="#">¿No tienes cuenta? Crear Cuenta</a>
+                    <a href="Registro.php">¿No tienes cuenta? Crear Cuenta</a>
                 </div>
             </div>
         </div>

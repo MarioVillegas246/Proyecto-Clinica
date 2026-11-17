@@ -9,8 +9,8 @@ if (!isset($_SESSION['usuario_id'])) {
 ?>
 
 <?php
-// Incluir conexión a PostgreSQL para obtener datos reales
-require_once "conexionposgres.php";
+// Incluir conexión a PostgreSQL desde backend/config/
+require_once "../../backend/config/conexionposgres.php";
 
 try {
     // 1. Contar el total de medicamentos en la tabla
@@ -37,14 +37,16 @@ try {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos/style.css">
+    <!-- Ruta de estilos corregida -->
+    <link rel="stylesheet" href="../assets/estilos/style.css">
 </head>
 <body class="app-layout">
 
     <!-- BARRA LATERAL (SIDEBAR) -->
     <aside class="sidebar">
         <div class="brand-container">
-            <img src="img/logo.jpeg" alt="Clínica Emanuel" class="sidebar-logo">
+            <!-- Ruta del logo corregida -->
+            <img src="../assets/img/logo.jpeg" alt="Clínica Emanuel" class="sidebar-logo">
             <span class="brand-name">Clínica Emanuel</span>
         </div>
 
@@ -75,7 +77,7 @@ try {
                     <span class="arrow">▼</span>
                 </button>
                 <div class="dropdown-menu-content">
-                    <a href="registro.php" class="nav-link">Nuevo medicamento</a>
+                    <a href="Registro.php" class="nav-link">Nuevo medicamento</a>
                 </div>
             </div>
 
@@ -105,13 +107,13 @@ try {
                 
                 <!-- 🔒 BOTÓN EXCLUSIVO PARA ADMINISTRADOR -->
                 <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
-                    <a href="registro_usuario.php" class="btn-admin" style="background-color: #007bff; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
+                    <a href="Registro_usuario.php" class="btn-admin" style="background-color: #007bff; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
                         <span>➕ Añadir Usuario</span>
                     </a>
                 <?php endif; ?>
 
                 <!-- Botón de Cerrar Sesión -->
-                <a href="login.php" class="btn-logout" onclick="return confirm('¿Estás seguro de cerrar sesión?');">
+                <a href="Login.php" class="btn-logout" onclick="return confirm('¿Estás seguro de cerrar sesión?');">
                     <span>Cerrar sesión</span> 🚪
                 </a>
             </div>

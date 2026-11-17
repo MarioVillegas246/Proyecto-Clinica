@@ -1,6 +1,6 @@
 <?php
 // Incluir conexión a PostgreSQL
-require_once "conexionposgres.php";
+require_once "../../backend/config/conexionposgres.php";
 
 // Capturar parámetros de búsqueda y filtro
 $busqueda = trim($_GET['busqueda'] ?? '');
@@ -41,7 +41,7 @@ try {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- Vinculación del CSS de Inventario -->
-    <link rel="stylesheet" href="estilos/inventario.css">
+   <link rel="stylesheet" href="../assets/estilos/inventario.css">
 </head>
 
 <body>

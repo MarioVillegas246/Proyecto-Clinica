@@ -1,5 +1,5 @@
 <?php
-require_once "conexionposgres.php";
+require_once "../../backend/config/conexionposgres.php";
 
 $codigo = $_GET['codigo'] ?? '';
 

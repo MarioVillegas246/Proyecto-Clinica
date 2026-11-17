@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once 'conexionposgres.php';
+// Ruta de conexión corregida (de controller/ a config/)
+require_once '../config/conexionposgres.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo = trim($_POST['correo']);
@@ -21,15 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['nombre'] = $usuario['nombre'];
                 $_SESSION['rol'] = $usuario['rol']; // 'admin'
 
-                // Entramos al panel principal
-                header("Location: principal.index.php");
+                // Ruta corregida hacia el panel principal en frontend/vistas/
+                header("Location: ../../frontend/vistas/principal.index.php");
                 exit();
 
             } else {
-                echo "<script>alert('Contraseña incorrecta'); window.location='Login.php';</script>";
+                // Ruta corregida de retorno al Login
+                echo "<script>alert('Contraseña incorrecta'); window.location='../../frontend/vistas/Login.php';</script>";
             }
         } else {
-            echo "<script>alert('El correo no está registrado'); window.location='Login.php';</script>";
+            // Ruta corregida de retorno al Login
+            echo "<script>alert('El correo no está registrado'); window.location='../../frontend/vistas/Login.php';</script>";
         }
 
     } catch (PDOException $e) {
