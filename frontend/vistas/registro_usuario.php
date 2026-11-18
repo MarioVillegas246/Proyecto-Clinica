@@ -11,7 +11,7 @@
         <h2>Registrar Nuevo Usuario</h2>
         
         <!-- El formulario apunta al archivo que procesará la inserción -->
-        <form action="procesar_registro_usuario.php" method="POST">
+        <form id="formUsuario" style="...">
             
             <div class="input-group" style="margin-bottom: 15px;">
                 <label for="nombre">Nombre Completo</label>
@@ -41,5 +41,39 @@
         
         <p style="margin-top: 15px; text-align: center;"><a href="principal.index.php">← Volver al Panel Principal</a></p>
     </div>
+    <script>
+document.getElementById('formUsuario').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Evita que la página se recargue
+
+    const datos = {
+        nombre: document.getElementById('nombre').value,
+        correo: document.getElementById('correo').value,
+        password: document.getElementById('password').value,
+        rol: document.getElementById('rol').value
+    };
+
+    try {
+        const respuesta = await fetch('http://localhost:8000/backend/api/usuarios.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos)
+        });
+
+        const resultado = await respuesta.json();
+
+        if (respuesta.ok) {
+            alert('¡Usuario guardado correctamente!');
+            window.location.href = 'principal.index.php'; // O la vista que corresponda
+        } else {
+            alert('Error: ' + (resultado.error || 'No se pudo guardar'));
+        }
+    } catch (error) {
+        console.error('Error de red:', error);
+        alert('Hubo un error al conectar con el servidor.');
+    }
+});
+</script>
 </body>
 </html>

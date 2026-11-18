@@ -1,0 +1,24 @@
+###aqui se hace para ver todos los usuarios que tengo en mi base de datos
+GET http://localhost:8000/backend/api/usuarios.php
+
+###para buscar solo uno por ID 
+GET http://localhost:8000/backend/api/usuarios.php?id=1
+
+
+###Aqui tenemos la misma ruta pero ahora con el metodo POST esto hace para registrar un usuario
+POST http://localhost:8000/backend/api/usuarios.php
+{
+  "nombre": "Gabriel",
+  "correo": "gabriel@gmail.com",
+  "password": "gabriel123",
+  "rol": "usuario"
+}
+
+### esto hace para actualizar un usuario con el id 
+PUT http://localhost:8000/backend/api/usuarios.php?id=4
+{
+  "nombre": "Gabriel",
+  "correo": "gabo@gmail.com",
+  "password": "gabriel123",
+  "rol": "admin"
+}

@@ -1,0 +1,11 @@
+###con esto te genera un token para no pedir contraseña
+http://localhost:8000/backend/api/login.php
+
+{
+  "correo": "gabo@gmail.com",
+  "password": "gabriel123"
+}
+
+###esto es con el token que nos genera el postman 
+###cuando ve el token solo mostrara el usuario que tiene ese token valido
+GET http://localhost:8000/backend/api/usuarios.php
